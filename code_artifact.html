@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetBアニマルクリニック | AIと人間の温もりでペットの健康を守る</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0284c7', // sky-600
+                        secondary: '#f97316', // orange-500
+                        light: '#f0f9ff', // sky-50
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: #f8fafc; color: #334155; }
+        .hero-pattern {
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-stethoscope text-primary text-3xl mr-2"></i>
+                    <span class="font-bold text-2xl text-slate-800 tracking-tight">JetB<span class="text-primary">アニマルクリニック</span></span>
+                </div>
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#news" class="text-slate-600 hover:text-primary transition font-medium">お知らせ</a>
+                    <a href="#about" class="text-slate-600 hover:text-primary transition font-medium">当院について</a>
+                    <a href="#services" class="text-slate-600 hover:text-primary transition font-medium">診療案内</a>
+                    <a href="#hours" class="text-slate-600 hover:text-primary transition font-medium">診療時間</a>
+                    <a href="#access" class="text-slate-600 hover:text-primary transition font-medium">アクセス</a>
+                    <button onclick="openReservationModal()" class="bg-secondary text-white px-5 py-2.5 rounded-full font-bold shadow-md hover:bg-orange-600 transition flex items-center">
+                        <i class="fa-regular fa-calendar-check mr-2"></i>WEB予約
+                    </button>
+                </nav>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#news" class="block px-3 py-2 text-slate-600 font-medium hover:bg-light rounded-md">お知らせ</a>
+                <a href="#about" class="block px-3 py-2 text-slate-600 font-medium hover:bg-light rounded-md">当院について</a>
+                <a href="#services" class="block px-3 py-2 text-slate-600 font-medium hover:bg-light rounded-md">診療案内</a>
+                <a href="#hours" class="block px-3 py-2 text-slate-600 font-medium hover:bg-light rounded-md">診療時間</a>
+                <a href="#access" class="block px-3 py-2 text-slate-600 font-medium hover:bg-light rounded-md">アクセス</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 lg:pt-32 lg:pb-20 overflow-hidden bg-light hero-pattern relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mb-12 lg:mb-0 text-center lg:text-left">
+                    <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary font-semibold text-sm mb-4 border border-blue-200">
+                        <i class="fa-solid fa-robot mr-1"></i> AI導入の次世代型動物病院
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+                        AIの力と人間の温もりで、<br />
+                        <span class="text-primary">大切な家族の明日</span>を守る
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0">
+                        最新のテクノロジーを活用した迅速な診断と、動物たちに寄り添う温かい獣医療を提供します。言葉を話せない小さなサインを見逃しません。
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="#contact" class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center">
+                            <i class="fa-solid fa-phone mr-2"></i> 03-5919-0033
+                        </a>
+                        <a href="#" onclick="openChat()" class="bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-200 font-bold py-3 px-8 rounded-full shadow-sm transition flex items-center justify-center">
+                            <i class="fa-regular fa-comment-dots mr-2 text-secondary"></i> AIに相談・予約
+                        </a>
+                    </div>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                    <!-- Hero Image -->
+                    <img src="https://images.unsplash.com/photo-1628009368231-7bb7cb080d46?q=80&w=1200&auto=format&fit=crop" alt="獣医師と犬" class="w-full h-[400px] lg:h-[500px] object-cover hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent pointer-events-none"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Topics Section -->
+    <section id="news" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-b-2 border-primary w-24 mb-6"></div>
+            <h2 class="text-3xl font-bold text-slate-800 mb-8 flex items-center">
+                <i class="fa-regular fa-newspaper text-primary mr-3"></i>お知らせ <span class="text-sm text-slate-400 ml-3 font-normal">News & Topics</span>
+            </h2>
+            <div class="bg-slate-50 rounded-xl p-6 shadow-sm border border-slate-100">
+                <ul class="divide-y divide-slate-200">
+                    <li class="py-4 flex flex-col sm:flex-row sm:items-center">
+                        <span class="text-slate-500 font-medium w-32 flex-shrink-0">2026.06.01</span>
+                        <span class="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded font-semibold mr-4 mb-2 sm:mb-0 w-fit">キャンペーン</span>
+                        <a href="#" class="text-slate-700 hover:text-primary transition">夏のフィラリア予防・ノミダニ予防キャンペーンを実施中です。</a>
+                    </li>
+                    <li class="py-4 flex flex-col sm:flex-row sm:items-center">
+                        <span class="text-slate-500 font-medium w-32 flex-shrink-0">2026.05.15</span>
+                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded font-semibold mr-4 mb-2 sm:mb-0 w-fit">お知らせ</span>
+                        <a href="#" class="text-slate-700 hover:text-primary transition">24時間対応のAIチャットボット「うちのAI」での自動予約システムを導入しました。</a>
+                    </li>
+                    <li class="py-4 flex flex-col sm:flex-row sm:items-center">
+                        <span class="text-slate-500 font-medium w-32 flex-shrink-0">2026.04.25</span>
+                        <span class="bg-slate-200 text-slate-700 text-xs px-2 py-1 rounded font-semibold mr-4 mb-2 sm:mb-0 w-fit">休診情報</span>
+                        <a href="#" class="text-slate-700 hover:text-primary transition">ゴールデンウィークおよび祝日の診療時間について</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 gap-12 items-center">
+                <div class="mb-10 lg:mb-0 relative">
+                    <div class="absolute inset-0 bg-blue-100 rounded-2xl transform translate-x-4 translate-y-4"></div>
+                    <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=1200&auto=format&fit=crop" alt="診療中の様子" class="rounded-2xl shadow-xl w-full h-[400px] object-cover relative z-10 border-4 border-white">
+                </div>
+                <div>
+                    <div class="border-b-2 border-primary w-24 mb-6"></div>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-6 flex items-center">
+                        当院について <span class="text-sm text-slate-400 ml-3 font-normal">About Us</span>
+                    </h2>
+                    <h3 class="text-2xl font-bold text-primary mb-4">「JetのスピードでBenefitを提供する」</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        私たちJetBアニマルクリニックは、最新のテクノロジーを活用した迅速な診断（Jet）と、飼い主様と動物たちに寄り添う温かい獣医療（Benefit）を提供します。
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        言葉を話せない動物たちの小さなサインを見逃さないため、AIによる画像診断サポートなどを導入し、精度の高い医療を実現。人々がペットと共に心も豊かに暮らせる世界を目指しています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="border-b-2 border-primary w-24 mx-auto mb-6"></div>
+                <h2 class="text-3xl font-bold text-slate-800 flex justify-center items-center">
+                    診療案内 <span class="text-sm text-slate-400 ml-3 font-normal">Service</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group overflow-hidden flex flex-col">
+                    <div class="h-48 w-full overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?q=80&w=600&auto=format&fit=crop" alt="一般診療" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-primary">
+                            <i class="fa-solid fa-paw text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 bg-white">
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">一般診療</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">対象：犬・猫・うさぎ・ハムスターなど<br>内科・外科全般・皮膚科・眼科・消化器科など、幅広い症状に対応いたします。</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group overflow-hidden flex flex-col">
+                    <div class="h-48 w-full overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?q=80&w=600&auto=format&fit=crop" alt="予防医療" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-primary">
+                            <i class="fa-solid fa-syringe text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 bg-white">
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">予防医療</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">狂犬病予防注射・混合ワクチン・フィラリア予防・ノミマダニ予防など。健康な毎日を守るためのサポートを行います。</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group relative overflow-hidden flex flex-col">
+                    <div class="absolute top-0 right-0 z-10 bg-secondary text-white text-xs font-bold px-4 py-1.5 rounded-bl-lg shadow-md">NEW</div>
+                    <div class="h-48 w-full overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=600&auto=format&fit=crop" alt="AI健康診断" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-primary">
+                            <i class="fa-solid fa-microchip text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 bg-white">
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">AI健康診断</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">「うちのAIドック」<br>最新のAI解析を用いたレントゲン・エコー画像診断により、小さな病変も早期発見をサポートします。</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group overflow-hidden flex flex-col">
+                    <div class="h-48 w-full overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1516734212822-43013e536124?q=80&w=600&auto=format&fit=crop" alt="トリミング" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-primary">
+                            <i class="fa-solid fa-scissors text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 bg-white">
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">トリミング</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">獣医師監修のもと、皮膚の状態をチェックしながら、その子に合ったシャンプーを使用し丁寧に仕上げます。（要予約）</p>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group overflow-hidden flex flex-col">
+                    <div class="h-48 w-full overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?q=80&w=600&auto=format&fit=crop" alt="ペットホテル" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-primary">
+                            <i class="fa-solid fa-house-chimney-medical text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 bg-white">
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">ペットホテル</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">ご旅行や急な用事の際に、安心してお預けいただける施設を完備しています。お散歩や健康チェックも行います。（要予約）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Hours Section -->
+    <section id="hours" class="py-16 bg-light">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <div class="border-b-2 border-primary w-24 mx-auto mb-6"></div>
+                <h2 class="text-3xl font-bold text-slate-800 flex justify-center items-center">
+                    <i class="fa-regular fa-clock text-primary mr-3"></i>診療時間 <span class="text-sm text-slate-400 ml-3 font-normal">Hours</span>
+                </h2>
+                <p class="text-slate-600 mt-4">動物たちに配慮し、お昼休みを設けた二部制での診療を行っております。</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-slate-200">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-center border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700">
+                                <th class="py-4 px-2 border-b border-slate-200 font-bold">診療時間</th>
+                                <th class="py-4 px-2 border-b border-slate-200 font-bold">月</th>
+                                <th class="py-4 px-2 border-b border-slate-200 font-bold">火</th>
+                                <th class="py-4 px-2 border-b border-slate-200 font-bold">水</th>
+                                <th class="py-4 px-2 border-b border-slate-200 font-bold text-rose-500">木</th>
+                                <th class="py-4 px-2 border-b border-slate-200 font-bold">金</th>
+                                <th class="py-4 px-2 border-b border-slate-200 font-bold text-blue-500">土</th>
+                                <th class="py-4 px-2 border-b border-slate-200 font-bold text-rose-500">日・祝</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-lg">
+                            <tr>
+                                <td class="py-4 px-2 border-b border-slate-100 font-medium text-slate-700">10:00 〜 13:00</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-slate-300">休</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                            </tr>
+                            <tr class="bg-slate-50">
+                                <td class="py-4 px-2 border-b border-slate-100 font-medium text-slate-700">15:00 〜 19:00</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-slate-300">休</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-primary">〇</td>
+                                <td class="py-4 px-2 border-b border-slate-100 text-secondary font-bold">△</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-600 bg-white p-4 rounded-lg border border-slate-200">
+                <ul class="list-disc list-inside space-y-1">
+                    <li><span class="text-secondary font-bold">△</span>：日曜・祝日午後は15:00〜17:00までの短縮診療となります。</li>
+                    <li><span class="font-bold">休診日</span>：木曜日、年末年始</li>
+                    <li>最終受付は診療終了時間の30分前までとなります。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access & Contact Section -->
+    <section id="access" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="border-b-2 border-primary w-24 mx-auto mb-6"></div>
+                <h2 class="text-3xl font-bold text-slate-800 flex justify-center items-center">
+                    基本情報・アクセス <span class="text-sm text-slate-400 ml-3 font-normal">Access</span>
+                </h2>
+            </div>
+
+            <div class="lg:grid lg:grid-cols-2 gap-8">
+                <!-- Info -->
+                <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 mb-8 lg:mb-0">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-4"><i class="fa-solid fa-hospital text-primary mr-2"></i>JetBアニマルクリニック</h3>
+                    
+                    <div id="contact" class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 text-primary flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-medium mb-1">お電話でのご予約・お問い合わせ</p>
+                                <p class="text-3xl font-bold text-slate-800 tracking-wider">03-5919-0033</p>
+                                <p class="text-xs text-slate-500 mt-1">受付時間：10:00〜19:00（木曜・年末年始を除く）</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-orange-100 text-secondary flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-medium mb-1">WEB予約・AIチャット</p>
+                                <p class="text-slate-700 text-sm">画面右下の「AI接客チャットボット」より24時間365日いつでもWEB予約・ご相談が可能です。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-medium mb-1">所在地</p>
+                                <p class="text-slate-700">〒160-0022<br>東京都新宿区新宿X-X-X</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="fa-solid fa-train-subway"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-medium mb-1">アクセス</p>
+                                <ul class="text-slate-700 text-sm space-y-1">
+                                    <li>・電車：新宿駅 徒歩8分 / 新宿三丁目駅 徒歩3分</li>
+                                    <li>・お車：専用駐車場 3台完備</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Map -->
+                <div class="h-full min-h-[400px] bg-slate-200 rounded-xl overflow-hidden relative border border-slate-200 shadow-sm">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25925.32840656024!2d139.68233306716075!3d35.68884976722003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd0d6b1ba1f%3A0x1c32a1f1ecacfdd5!2z5p2x5Lqs6YO95paw5a6_5Yy6!5e0!3m2!1sja!2sjp!4v1717511000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="absolute inset-0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white pt-12 pb-6 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between pb-8 border-b border-slate-700">
+                <div class="mb-6 md:mb-0 flex items-center">
+                    <i class="fa-solid fa-stethoscope text-primary text-2xl mr-2"></i>
+                    <span class="font-bold text-xl tracking-tight">JetBアニマルクリニック</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-line text-xl"></i></a>
+                </div>
+            </div>
+            <div class="mt-8 md:flex md:items-center md:justify-between text-sm text-slate-400">
+                <div class="flex space-x-4 mb-4 md:mb-0">
+                    <a href="#" class="hover:text-white transition">プライバシーポリシー</a>
+                    <a href="#" class="hover:text-white transition">サイトマップ</a>
+                </div>
+                <p>&copy; 2026 JetB Animal Clinic. ALL Rights Reserved.</p>
+            </div>
+            <div class="mt-4 text-xs text-slate-500 text-center md:text-right">
+                ※このサイトはデモ用の架空サイトです。
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reservation Modal (予約フォーム) -->
+    <div id="reservation-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4 sm:p-6">
+        <!-- 背景のオーバーレイ（クリックで閉じる） -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeReservationModal()"></div>
+        
+        <!-- モーダル本体 -->
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="reservation-modal-content">
+            <!-- ヘッダー -->
+            <div class="bg-secondary text-white px-6 py-4 flex justify-between items-center">
+                <h3 class="font-bold text-lg flex items-center"><i class="fa-regular fa-calendar-check mr-2"></i>WEB予約フォーム</h3>
+                <button onclick="closeReservationModal()" class="text-white/80 hover:text-white transition focus:outline-none">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 入力フォーム -->
+            <div id="reservation-form-container" class="p-6">
+                <p class="text-sm text-slate-600 mb-6">以下のフォームに必要事項を入力して、予約を確定してください。<br>※緊急の場合はお電話（03-5919-0033）でご連絡ください。</p>
+                <form id="reservation-form" onsubmit="submitReservation(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">お名前 (必須)</label>
+                        <input type="text" required class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="山田 太郎">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">ペットのお名前・種類 (必須)</label>
+                        <input type="text" required class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="ポチ（犬・トイプードル）">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">ご希望の日時 (必須)</label>
+                        <input type="datetime-local" required class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">ご相談内容 (任意)</label>
+                        <textarea rows="3" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="狂犬病の予防接種希望、最近食欲がない等"></textarea>
+                    </div>
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-secondary hover:bg-orange-600 text-white font-bold py-3 rounded-lg shadow-md transition flex justify-center items-center">
+                            予約を申し込む <i class="fa-solid fa-paper-plane ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 送信完了メッセージ (初期状態は非表示) -->
+            <div id="reservation-success" class="hidden p-8 text-center">
+                <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-check text-3xl"></i>
+                </div>
+                <h4 class="text-xl font-bold text-slate-800 mb-2">ご予約リクエストを受け付けました</h4>
+                <p class="text-slate-600 mb-6 text-sm leading-relaxed">
+                    入力いただいた内容を確認し、折り返しご連絡いたします。<br>いましばらくお待ちくださいませ。
+                </p>
+                <button onclick="closeReservationModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-6 rounded-lg transition">
+                    閉じる
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating AI Chatbot Button & Modal -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Modal -->
+        <div id="chat-modal" class="hidden mb-4 bg-white w-80 h-96 rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden transition-all transform origin-bottom-right scale-95 opacity-0">
+            <!-- Chat Header -->
+            <div class="bg-primary text-white p-3 flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-2">
+                        <i class="fa-solid fa-robot text-sm"></i>
+                    </div>
+                    <span class="font-bold text-sm">うちのAI ドクター</span>
+                </div>
+                <button onclick="closeChat()" class="text-white hover:text-slate-200 focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <!-- Chat Body -->
+            <div class="flex-1 p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 text-sm" id="chat-body">
+                <div class="flex items-start">
+                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 mr-2 mt-1">
+                        <i class="fa-solid fa-robot text-xs"></i>
+                    </div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-700 border border-slate-100">
+                        こんにちは！JetBアニマルクリニックのAIアシスタントです。<br>ご予約ですか？それとも何かご相談でしょうか？
+                    </div>
+                </div>
+                <!-- Quick replies -->
+                <div class="flex flex-wrap gap-2 mt-2 pl-10" id="quick-replies">
+                    <button onclick="sendUserMsg('予約を取りたい')" class="bg-blue-100 hover:bg-blue-200 text-primary border border-blue-200 px-3 py-1.5 rounded-full text-xs font-medium transition">予約を取りたい</button>
+                    <button onclick="sendUserMsg('診療時間について')" class="bg-blue-100 hover:bg-blue-200 text-primary border border-blue-200 px-3 py-1.5 rounded-full text-xs font-medium transition">診療時間について</button>
+                    <button onclick="sendUserMsg('休診日を知りたい')" class="bg-blue-100 hover:bg-blue-200 text-primary border border-blue-200 px-3 py-1.5 rounded-full text-xs font-medium transition">休診日を知りたい</button>
+                </div>
+            </div>
+            <!-- Chat Input -->
+            <div class="p-3 bg-white border-t border-slate-100 flex items-center">
+                <input type="text" id="chat-input" placeholder="メッセージを入力..." class="flex-1 bg-slate-100 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50">
+                <button onclick="handleManualSend()" class="ml-2 w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition flex-shrink-0">
+                    <i class="fa-solid fa-paper-plane text-xs -ml-0.5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Float Button -->
+        <button onclick="toggleChat()" class="w-16 h-16 bg-gradient-to-r from-primary to-blue-500 rounded-full text-white shadow-xl hover:shadow-2xl hover:scale-105 transition transform flex items-center justify-center relative group">
+            <i class="fa-solid fa-comment-medical text-3xl"></i>
+            <!-- Notification Badge -->
+            <span class="absolute top-0 right-0 block h-4 w-4 rounded-full bg-rose-500 ring-2 ring-white"></span>
+            <!-- Tooltip -->
+            <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
+                AIチャット・24h予約
+                <!-- Arrow -->
+                <svg class="absolute text-slate-800 h-2 w-2 left-full top-1/2 -translate-y-1/2" viewBox="0 0 255 255"><polygon class="fill-current" points="0,0 127.5,127.5 0,255"/></svg>
+            </span>
+        </button>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Chatbot Logic
+        const chatModal = document.getElementById('chat-modal');
+        const chatBody = document.getElementById('chat-body');
+        const quickReplies = document.getElementById('quick-replies');
+        const chatInput = document.getElementById('chat-input');
+        let isChatOpen = false;
+
+        function toggleChat() {
+            if (isChatOpen) {
+                closeChat();
+            } else {
+                openChat();
+            }
+        }
+
+        function openChat() {
+            chatModal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before animating opacity/transform
+            setTimeout(() => {
+                chatModal.classList.remove('scale-95', 'opacity-0');
+                chatModal.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            isChatOpen = true;
+        }
+
+        function closeChat() {
+            chatModal.classList.remove('scale-100', 'opacity-100');
+            chatModal.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                chatModal.classList.add('hidden');
+            }, 200); // Wait for transition to finish
+            isChatOpen = false;
+        }
+
+        function sendUserMsg(text) {
+            if (!text.trim()) return;
+
+            // Hide quick replies once user interacts
+            if (quickReplies) quickReplies.style.display = 'none';
+
+            // Add user message
+            const userHtml = `
+                <div class="flex items-end justify-end mt-2">
+                    <div class="bg-primary text-white p-3 rounded-2xl rounded-tr-none shadow-sm text-sm max-w-[80%]">
+                        ${text}
+                    </div>
+                </div>
+            `;
+            chatBody.insertAdjacentHTML('beforeend', userHtml);
+            chatInput.value = '';
+            scrollToBottom();
+
+            // Simulate AI typing delay
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                removeTypingIndicator();
+                let reply = "";
+                
+                // Simple pattern matching for demo
+                if (text.includes("予約")) {
+                    reply = "ご予約ですね！当院のWEB予約システムへご案内します。<br><br><button onclick='openReservationModal(); closeChat();' class='text-primary font-bold hover:text-blue-700 underline bg-blue-50 px-3 py-2 rounded-lg inline-flex items-center mt-2 transition'><i class='fa-solid fa-calendar-check mr-2'></i>予約フォームを開く</button>";
+                } else if (text.includes("時間")) {
+                    reply = "診療時間は、午前 10:00〜13:00、午後 15:00〜19:00 です。（日曜・祝日の午後は15:00〜17:00）<br>最終受付は診療終了の30分前となります。";
+                } else if (text.includes("休")) {
+                    reply = "休診日は【木曜日】および【年末年始】となっております。";
+                } else {
+                    reply = "メッセージありがとうございます！詳細なご相談はお電話（03-5919-0033）にて承っております。または、ご予約をお取りになってご来院ください。";
+                }
+
+                addBotMsg(reply);
+            }, 1000);
+        }
+
+        function handleManualSend() {
+            sendUserMsg(chatInput.value);
+        }
+
+        // Allow pressing Enter to send
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                handleManualSend();
+            }
+        });
+
+        function addBotMsg(text) {
+            const botHtml = `
+                <div class="flex items-start mt-2">
+                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 mr-2 mt-1">
+                        <i class="fa-solid fa-robot text-xs"></i>
+                    </div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-700 border border-slate-100 text-sm max-w-[80%]">
+                        ${text}
+                    </div>
+                </div>
+            `;
+            chatBody.insertAdjacentHTML('beforeend', botHtml);
+            scrollToBottom();
+        }
+
+        function showTypingIndicator() {
+            const typingHtml = `
+                <div id="typing-indicator" class="flex items-start mt-2">
+                    <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 mr-2 mt-1">
+                        <i class="fa-solid fa-robot text-xs"></i>
+                    </div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 flex gap-1 items-center">
+                        <div class="w-2 h-2 bg-slate-300 rounded-full animate-bounce"></div>
+                        <div class="w-2 h-2 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                        <div class="w-2 h-2 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                    </div>
+                </div>
+            `;
+            chatBody.insertAdjacentHTML('beforeend', typingHtml);
+            scrollToBottom();
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+        }
+
+        function scrollToBottom() {
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // 予約フォーム(モーダル)の制御ロジック
+        const resModal = document.getElementById('reservation-modal');
+        const resModalContent = document.getElementById('reservation-modal-content');
+        const resFormContainer = document.getElementById('reservation-form-container');
+        const resSuccess = document.getElementById('reservation-success');
+        const resForm = document.getElementById('reservation-form');
+
+        function openReservationModal() {
+            // モーダルを表示
+            resModal.classList.remove('hidden');
+            
+            // フォームの状態をリセット
+            resFormContainer.classList.remove('hidden');
+            resSuccess.classList.add('hidden');
+            resForm.reset();
+            
+            // アニメーション用
+            setTimeout(() => {
+                resModalContent.classList.remove('scale-95', 'opacity-0');
+                resModalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeReservationModal() {
+            // アニメーション用
+            resModalContent.classList.remove('scale-100', 'opacity-100');
+            resModalContent.classList.add('scale-95', 'opacity-0');
+            
+            // アニメーション完了後に非表示
+            setTimeout(() => {
+                resModal.classList.add('hidden');
+            }, 300);
+        }
+
+        function submitReservation(e) {
+            e.preventDefault(); // 実際のページ遷移(リロード)を防ぐ
+            
+            // フォームを隠して完了メッセージを表示する
+            resFormContainer.classList.add('hidden');
+            resSuccess.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
