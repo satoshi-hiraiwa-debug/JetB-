@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JetBアニマルクリニック | AIと人間の温もりでペットの健康を守る</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -40,27 +37,23 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header / Navbar -->
     <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
                     <i class="fa-solid fa-stethoscope text-primary text-3xl mr-2"></i>
                     <span class="font-bold text-2xl text-slate-800 tracking-tight">JetB<span class="text-primary">アニマルクリニック</span></span>
                 </div>
-                <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8 items-center">
                     <a href="#news" class="text-slate-600 hover:text-primary transition font-medium">お知らせ</a>
                     <a href="#about" class="text-slate-600 hover:text-primary transition font-medium">当院について</a>
                     <a href="#services" class="text-slate-600 hover:text-primary transition font-medium">診療案内</a>
                     <a href="#hours" class="text-slate-600 hover:text-primary transition font-medium">診療時間</a>
                     <a href="#access" class="text-slate-600 hover:text-primary transition font-medium">アクセス</a>
-                    <button onclick="openReservationModal()" class="bg-secondary text-white px-5 py-2.5 rounded-full font-bold shadow-md hover:bg-orange-600 transition flex items-center">
+                    <a href="reserve.html" class="bg-secondary text-white px-5 py-2.5 rounded-full font-bold shadow-md hover:bg-orange-600 transition flex items-center">
                         <i class="fa-regular fa-calendar-check mr-2"></i>WEB予約
-                    </button>
+                    </a>
                 </nav>
-                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none p-2">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -68,7 +61,6 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#news" class="block px-3 py-2 text-slate-600 font-medium hover:bg-light rounded-md">お知らせ</a>
@@ -76,11 +68,11 @@
                 <a href="#services" class="block px-3 py-2 text-slate-600 font-medium hover:bg-light rounded-md">診療案内</a>
                 <a href="#hours" class="block px-3 py-2 text-slate-600 font-medium hover:bg-light rounded-md">診療時間</a>
                 <a href="#access" class="block px-3 py-2 text-slate-600 font-medium hover:bg-light rounded-md">アクセス</a>
+                <a href="reserve.html" class="block px-3 py-2 bg-secondary text-white font-bold text-center rounded-md mt-2">WEB予約</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="pt-24 pb-12 lg:pt-32 lg:pb-20 overflow-hidden bg-light hero-pattern relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
@@ -96,7 +88,7 @@
                         最新のテクノロジーを活用した迅速な診断と、動物たちに寄り添う温かい獣医療を提供します。言葉を話せない小さなサインを見逃しません。
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                        <a href="#contact" class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center">
+                        <a href="tel:03-5919-0033" class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center">
                             <i class="fa-solid fa-phone mr-2"></i> 03-5919-0033
                         </a>
                         <a href="#" onclick="openChat()" class="bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-200 font-bold py-3 px-8 rounded-full shadow-sm transition flex items-center justify-center">
@@ -105,7 +97,6 @@
                     </div>
                 </div>
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                    <!-- Hero Image -->
                     <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=1000&auto=format&fit=crop" alt="獣医師と犬" class="w-full h-full object-cover transform hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent pointer-events-none"></div>
                 </div>
@@ -113,7 +104,6 @@
         </div>
     </section>
 
-    <!-- News & Topics Section -->
     <section id="news" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="border-b-2 border-primary w-24 mb-6"></div>
@@ -142,7 +132,6 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
     <section id="about" class="py-16 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 gap-12 items-center">
@@ -167,7 +156,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -178,7 +166,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1 -->
                 <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group overflow-hidden flex flex-col">
                     <div class="h-48 w-full overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?q=80&w=600&auto=format&fit=crop" alt="一般診療" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
@@ -192,7 +179,6 @@
                         <p class="text-slate-600 text-sm leading-relaxed">対象：犬・猫・うさぎ・ハムスターなど<br>内科・外科全般・皮膚科・眼科・消化器科など、幅広い症状に対応いたします。</p>
                     </div>
                 </div>
-                <!-- Card 2 -->
                 <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group overflow-hidden flex flex-col">
                     <div class="h-48 w-full overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?q=80&w=600&auto=format&fit=crop" alt="予防医療" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
@@ -206,7 +192,6 @@
                         <p class="text-slate-600 text-sm leading-relaxed">狂犬病予防注射・混合ワクチン・フィラリア予防・ノミマダニ予防など。健康な毎日を守るためのサポートを行います。</p>
                     </div>
                 </div>
-                <!-- Card 3 -->
                 <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group relative overflow-hidden flex flex-col">
                     <div class="absolute top-0 right-0 z-10 bg-secondary text-white text-xs font-bold px-4 py-1.5 rounded-bl-lg shadow-md">NEW</div>
                     <div class="h-48 w-full overflow-hidden relative">
@@ -221,7 +206,6 @@
                         <p class="text-slate-600 text-sm leading-relaxed">「うちのAIドック」<br>最新のAI解析を用いたレントゲン・エコー画像診断により、小さな病変も早期発見をサポートします。</p>
                     </div>
                 </div>
-                <!-- Card 4 -->
                 <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group overflow-hidden flex flex-col">
                     <div class="h-48 w-full overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1516734212822-43013e536124?q=80&w=600&auto=format&fit=crop" alt="トリミング" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
@@ -235,7 +219,6 @@
                         <p class="text-slate-600 text-sm leading-relaxed">獣医師監修のもと、皮膚の状態をチェックしながら、その子に合ったシャンプーを使用し丁寧に仕上げます。（要予約）</p>
                     </div>
                 </div>
-                <!-- Card 5 -->
                 <div class="bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition group overflow-hidden flex flex-col">
                     <div class="h-48 w-full overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?q=80&w=600&auto=format&fit=crop" alt="ペットホテル" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
@@ -253,7 +236,6 @@
         </div>
     </section>
 
-    <!-- Consultation Hours Section -->
     <section id="hours" class="py-16 bg-light">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
@@ -314,7 +296,6 @@
         </div>
     </section>
 
-    <!-- Access & Contact Section -->
     <section id="access" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -325,7 +306,6 @@
             </div>
 
             <div class="lg:grid lg:grid-cols-2 gap-8">
-                <!-- Info -->
                 <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 mb-8 lg:mb-0">
                     <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-4"><i class="fa-solid fa-hospital text-primary mr-2"></i>JetBアニマルクリニック</h3>
                     
@@ -376,7 +356,6 @@
                     </div>
                 </div>
 
-                <!-- Google Map -->
                 <div class="h-full min-h-[400px] bg-slate-200 rounded-xl overflow-hidden relative border border-slate-200 shadow-sm">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25925.32840656024!2d139.68233306716075!3d35.68884976722003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd0d6b1ba1f%3A0x1c32a1f1ecacfdd5!2z5p2x5Lqs6YO95paw5a6_5Yy6!5e0!3m2!1sja!2sjp!4v1717511000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="absolute inset-0"></iframe>
                 </div>
@@ -384,7 +363,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-slate-800 text-white pt-12 pb-6 border-t-4 border-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="md:flex md:items-center md:justify-between pb-8 border-b border-slate-700">
@@ -403,7 +381,7 @@
                     <a href="#" class="hover:text-white transition">プライバシーポリシー</a>
                     <a href="#" class="hover:text-white transition">サイトマップ</a>
                 </div>
-                <p>&copy; 2026 JetB Animal Clinic. ALL Rights Reserved.</p>
+                <p>© 2026 JetB Animal Clinic. ALL Rights Reserved.</p>
             </div>
             <div class="mt-4 text-xs text-slate-500 text-center md:text-right">
                 ※このサイトはデモ用の架空サイトです。
@@ -411,70 +389,8 @@
         </div>
     </footer>
 
-    <!-- Reservation Modal (予約フォーム) -->
-    <div id="reservation-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4 sm:p-6">
-        <!-- 背景のオーバーレイ（クリックで閉じる） -->
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeReservationModal()"></div>
-        
-        <!-- モーダル本体 -->
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="reservation-modal-content">
-            <!-- ヘッダー -->
-            <div class="bg-secondary text-white px-6 py-4 flex justify-between items-center">
-                <h3 class="font-bold text-lg flex items-center"><i class="fa-regular fa-calendar-check mr-2"></i>WEB予約フォーム</h3>
-                <button onclick="closeReservationModal()" class="text-white/80 hover:text-white transition focus:outline-none">
-                    <i class="fa-solid fa-xmark text-xl"></i>
-                </button>
-            </div>
-            
-            <!-- 入力フォーム -->
-            <div id="reservation-form-container" class="p-6">
-                <p class="text-sm text-slate-600 mb-6">以下のフォームに必要事項を入力して、予約を確定してください。<br>※緊急の場合はお電話（03-5919-0033）でご連絡ください。</p>
-                <form id="reservation-form" onsubmit="submitReservation(event)" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-1">お名前 (必須)</label>
-                        <input type="text" required class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="山田 太郎">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-1">ペットのお名前・種類 (必須)</label>
-                        <input type="text" required class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="ポチ（犬・トイプードル）">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-1">ご希望の日時 (必須)</label>
-                        <input type="datetime-local" required class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-1">ご相談内容 (任意)</label>
-                        <textarea rows="3" class="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="狂犬病の予防接種希望、最近食欲がない等"></textarea>
-                    </div>
-                    <div class="pt-4">
-                        <button type="submit" class="w-full bg-secondary hover:bg-orange-600 text-white font-bold py-3 rounded-lg shadow-md transition flex justify-center items-center">
-                            予約を申し込む <i class="fa-solid fa-paper-plane ml-2 text-sm"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- 送信完了メッセージ (初期状態は非表示) -->
-            <div id="reservation-success" class="hidden p-8 text-center">
-                <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fa-solid fa-check text-3xl"></i>
-                </div>
-                <h4 class="text-xl font-bold text-slate-800 mb-2">ご予約リクエストを受け付けました</h4>
-                <p class="text-slate-600 mb-6 text-sm leading-relaxed">
-                    入力いただいた内容を確認し、折り返しご連絡いたします。<br>いましばらくお待ちくださいませ。
-                </p>
-                <button onclick="closeReservationModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-6 rounded-lg transition">
-                    閉じる
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Floating AI Chatbot Button & Modal -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <!-- Chat Modal -->
         <div id="chat-modal" class="hidden mb-4 bg-white w-80 h-96 rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden transition-all transform origin-bottom-right scale-95 opacity-0">
-            <!-- Chat Header -->
             <div class="bg-primary text-white p-3 flex justify-between items-center">
                 <div class="flex items-center">
                     <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-2">
@@ -486,7 +402,6 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <!-- Chat Body -->
             <div class="flex-1 p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 text-sm" id="chat-body">
                 <div class="flex items-start">
                     <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 mr-2 mt-1">
@@ -496,14 +411,12 @@
                         こんにちは！JetBアニマルクリニックのAIアシスタントです。<br>ご予約ですか？それとも何かご相談でしょうか？
                     </div>
                 </div>
-                <!-- Quick replies -->
                 <div class="flex flex-wrap gap-2 mt-2 pl-10" id="quick-replies">
                     <button onclick="sendUserMsg('予約を取りたい')" class="bg-blue-100 hover:bg-blue-200 text-primary border border-blue-200 px-3 py-1.5 rounded-full text-xs font-medium transition">予約を取りたい</button>
                     <button onclick="sendUserMsg('診療時間について')" class="bg-blue-100 hover:bg-blue-200 text-primary border border-blue-200 px-3 py-1.5 rounded-full text-xs font-medium transition">診療時間について</button>
                     <button onclick="sendUserMsg('休診日を知りたい')" class="bg-blue-100 hover:bg-blue-200 text-primary border border-blue-200 px-3 py-1.5 rounded-full text-xs font-medium transition">休診日を知りたい</button>
                 </div>
             </div>
-            <!-- Chat Input -->
             <div class="p-3 bg-white border-t border-slate-100 flex items-center">
                 <input type="text" id="chat-input" placeholder="メッセージを入力..." class="flex-1 bg-slate-100 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50">
                 <button onclick="handleManualSend()" class="ml-2 w-9 h-9 bg-primary text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition flex-shrink-0">
@@ -512,15 +425,11 @@
             </div>
         </div>
 
-        <!-- Float Button -->
         <button onclick="toggleChat()" class="w-16 h-16 bg-gradient-to-r from-primary to-blue-500 rounded-full text-white shadow-xl hover:shadow-2xl hover:scale-105 transition transform flex items-center justify-center relative group">
             <i class="fa-solid fa-comment-medical text-3xl"></i>
-            <!-- Notification Badge -->
             <span class="absolute top-0 right-0 block h-4 w-4 rounded-full bg-rose-500 ring-2 ring-white"></span>
-            <!-- Tooltip -->
             <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition pointer-events-none">
                 AIチャット・24h予約
-                <!-- Arrow -->
                 <svg class="absolute text-slate-800 h-2 w-2 left-full top-1/2 -translate-y-1/2" viewBox="0 0 255 255"><polygon class="fill-current" points="0,0 127.5,127.5 0,255"/></svg>
             </span>
         </button>
@@ -560,7 +469,6 @@
 
         function openChat() {
             chatModal.classList.remove('hidden');
-            // Small delay to allow display:block to apply before animating opacity/transform
             setTimeout(() => {
                 chatModal.classList.remove('scale-95', 'opacity-0');
                 chatModal.classList.add('scale-100', 'opacity-100');
@@ -573,17 +481,15 @@
             chatModal.classList.add('scale-95', 'opacity-0');
             setTimeout(() => {
                 chatModal.classList.add('hidden');
-            }, 200); // Wait for transition to finish
+            }, 200);
             isChatOpen = false;
         }
 
         function sendUserMsg(text) {
             if (!text.trim()) return;
 
-            // Hide quick replies once user interacts
             if (quickReplies) quickReplies.style.display = 'none';
 
-            // Add user message
             const userHtml = `
                 <div class="flex items-end justify-end mt-2">
                     <div class="bg-primary text-white p-3 rounded-2xl rounded-tr-none shadow-sm text-sm max-w-[80%]">
@@ -595,16 +501,15 @@
             chatInput.value = '';
             scrollToBottom();
 
-            // Simulate AI typing delay
             showTypingIndicator();
             
             setTimeout(() => {
                 removeTypingIndicator();
                 let reply = "";
                 
-                // Simple pattern matching for demo
+                // 「予約」が含まれる場合の返答をreserve.htmlへのページ移動ボタンに変更
                 if (text.includes("予約")) {
-                    reply = "ご予約ですね！当院のWEB予約システムへご案内します。<br><br><button onclick='openReservationModal(); closeChat();' class='text-primary font-bold hover:text-blue-700 underline bg-blue-50 px-3 py-2 rounded-lg inline-flex items-center mt-2 transition'><i class='fa-solid fa-calendar-check mr-2'></i>予約フォームを開く</button>";
+                    reply = "ご予約ですね！当院のWEB予約システムへご案内します。<br><br><a href='reserve.html' class='text-primary font-bold hover:text-blue-700 underline bg-blue-50 px-3 py-2 rounded-lg inline-flex items-center mt-2 transition'><i class='fa-solid fa-calendar-check mr-2'></i>予約ページを開く</a>";
                 } else if (text.includes("時間")) {
                     reply = "診療時間は、午前 10:00〜13:00、午後 15:00〜19:00 です。（日曜・祝日の午後は15:00〜17:00）<br>最終受付は診療終了の30分前となります。";
                 } else if (text.includes("休")) {
@@ -621,7 +526,6 @@
             sendUserMsg(chatInput.value);
         }
 
-        // Allow pressing Enter to send
         chatInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 handleManualSend();
@@ -668,50 +572,6 @@
         function scrollToBottom() {
             chatBody.scrollTop = chatBody.scrollHeight;
         }
-
-        // 予約フォーム(モーダル)の制御ロジック
-        const resModal = document.getElementById('reservation-modal');
-        const resModalContent = document.getElementById('reservation-modal-content');
-        const resFormContainer = document.getElementById('reservation-form-container');
-        const resSuccess = document.getElementById('reservation-success');
-        const resForm = document.getElementById('reservation-form');
-
-        function openReservationModal() {
-            // モーダルを表示
-            resModal.classList.remove('hidden');
-            
-            // フォームの状態をリセット
-            resFormContainer.classList.remove('hidden');
-            resSuccess.classList.add('hidden');
-            resForm.reset();
-            
-            // アニメーション用
-            setTimeout(() => {
-                resModalContent.classList.remove('scale-95', 'opacity-0');
-                resModalContent.classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
-
-        function closeReservationModal() {
-            // アニメーション用
-            resModalContent.classList.remove('scale-100', 'opacity-100');
-            resModalContent.classList.add('scale-95', 'opacity-0');
-            
-            // アニメーション完了後に非表示
-            setTimeout(() => {
-                resModal.classList.add('hidden');
-            }, 300);
-        }
-
-        function submitReservation(e) {
-            e.preventDefault(); // 実際のページ遷移(リロード)を防ぐ
-            
-            // フォームを隠して完了メッセージを表示する
-            resFormContainer.classList.add('hidden');
-            resSuccess.classList.remove('hidden');
-        }
     </script>
 </body>
 </html>
-
-
